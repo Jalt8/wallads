@@ -19,7 +19,7 @@ const WallOwnersPage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     // Handle form submission logic here
@@ -55,10 +55,10 @@ const WallOwnersPage = () => {
             >
               <h2 className="text-3xl font-semibold mb-6">How It Works</h2>
               <ol className="space-y-4 list-decimal list-inside">
-                <li>Fill out the form with your wall's details.</li>
+                <li>Fill out the form with your wall&apos;s details.</li>
                 <li>Our team will review your submission and assess the potential of your wall.</li>
-                <li>If approved, we'll reach out to discuss terms and schedule an on-site evaluation.</li>
-                <li>Once an agreement is in place, we'll handle all aspects of ad design and installation.</li>
+                <li>If approved, we&apos;ll reach out to discuss terms and schedule an on-site evaluation.</li>
+                <li>Once an agreement is in place, we&apos;ll handle all aspects of ad design and installation.</li>
                 <li>You start earning passive income from your wall space!</li>
               </ol>
               <p className="mt-6 font-semibold">
