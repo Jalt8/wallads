@@ -27,7 +27,7 @@ const benefitsData = [
   },
 ];
 
-const BenefitCard = ({ icon, title, description }) => (
+const BenefitCard = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => (
   <div className="bg-white rounded-lg shadow-lg p-6 flex items-start space-x-4 hover:shadow-xl transition-shadow duration-300">
     <div className="bg-auburn rounded-full p-3 flex-shrink-0">
       {icon}
