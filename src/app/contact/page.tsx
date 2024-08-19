@@ -13,11 +13,11 @@ const ContactForm = () => {
     message: ''
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
   };
@@ -102,7 +102,7 @@ const ContactPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Get in touch and let's create impactful wall advertising together.
+          Get in touch and let&apos;s create impactful wall advertising together.
         </motion.p>
 
         <div className="bg-white shadow-xl rounded-lg overflow-hidden">
@@ -113,7 +113,7 @@ const ContactPage = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h2 className="text-3xl font-semibold mb-6">Let's Connect</h2>
+              <h2 className="text-3xl font-semibold mb-6">Let&apos;s Connect</h2>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
                   <Phone className="h-6 w-6" />
