@@ -35,7 +35,7 @@ const testimonials = [
   },
 ];
 
-const TestimonialCard = ({ testimonial, isExpanded, onClick }) => (
+const TestimonialCard = ({ testimonial, isExpanded, onClick }: { testimonial: any, isExpanded: boolean, onClick: () => void }) => (
   <motion.div
     layout
     initial={{ opacity: 0, scale: 0.9 }}
@@ -108,7 +108,7 @@ const TestimonialCard = ({ testimonial, isExpanded, onClick }) => (
 );
 
 const TestimonialsSection = () => {
-  const [expandedIndex, setExpandedIndex] = useState(null);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   return (
     <section className="py-20 bg-gradient-to-r from-black to-auburn">
