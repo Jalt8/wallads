@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const adSizes = [
   { size: '4M X 2.5M', imageUrl: '/api/placeholder/400/250', alt: 'KFC Drive-Thru Opening Soon' },
@@ -20,7 +21,7 @@ const WallAdSizeGuide = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
           {adSizes.map((ad, index) => (
             <div key={index} className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md">
-              <img 
+              <Image 
                 src={ad.imageUrl} 
                 alt={ad.alt}
                 className="w-full h-auto object-cover mb-4 rounded"

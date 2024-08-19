@@ -38,7 +38,7 @@ const portfolioData = [
       },  ];
   
 
-const PortfolioItem = ({ item, onExpand }) => (
+const PortfolioItem = ({ item, onExpand }: { item: any, onExpand: (image: string) => void }) => (
   <motion.div
     initial={{ opacity: 0, scale: 0.9 }}
     animate={{ opacity: 1, scale: 1 }}
@@ -78,7 +78,7 @@ const PortfolioItem = ({ item, onExpand }) => (
   </motion.div>
 );
 
-const ExpandedImage = ({ src, alt, onClose }) => (
+const ExpandedImage = ({ src, alt, onClose }: { src: string, alt: string, onClose: () => void }) => (
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
@@ -104,7 +104,7 @@ const ExpandedImage = ({ src, alt, onClose }) => (
 
 const PortfolioShowcase = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [expandedImage, setExpandedImage] = useState(null);
+  const [expandedImage, setExpandedImage] = useState<string | null>(null);
   const itemsPerPage = 3;
   const totalPages = Math.ceil(portfolioData.length / itemsPerPage);
 
@@ -116,18 +116,18 @@ const PortfolioShowcase = () => {
     setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
   };
 
-  const handleExpand = (image) => {
+  const handleExpand = (image: string) => {
     setExpandedImage(image);
   };
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') prevPage();
       if (e.key === 'ArrowRight') nextPage();
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [nextPage, prevPage]);
 
   const currentItems = portfolioData.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
 

@@ -28,7 +28,7 @@ const steps = [
   }
 ];
 
-const StepCard = ({ step, index, isActive, onClick }) => (
+const StepCard = ({ step, index, isActive, onClick }: { step: any, index: number, isActive: boolean, onClick: (index: number) => void }) => (
   <motion.div 
     className={`bg-white rounded-xl shadow-lg p-6 text-center h-full flex flex-col items-center cursor-pointer transition-all duration-300 ${isActive ? 'ring-4 ring-auburn' : 'hover:shadow-xl'}`}
     onClick={() => onClick(index)}
@@ -60,7 +60,7 @@ const StepCard = ({ step, index, isActive, onClick }) => (
 );
 
 const ModernEasySteps = () => {
-  const [activeStep, setActiveStep] = useState(null);
+  const [activeStep, setActiveStep] = useState<number | null>(null);
 
   return (
     <section className="py-24 bg-gradient-to-b from-dun to-white overflow-hidden">
@@ -79,7 +79,7 @@ const ModernEasySteps = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Transform your brand's visibility in three simple steps. Let us guide you through our seamless process to create advertising that truly stands out.
+          Transform your brand&apos;s visibility in three simple steps. Let us guide you through our seamless process to create advertising that truly stands out.
         </motion.p>
         <div className="relative mb-20">
           <div className="absolute top-1/2 left-0 right-0 h-1 bg-auburn transform -translate-y-1/2 hidden md:block"></div>
@@ -96,7 +96,7 @@ const ModernEasySteps = () => {
                   step={step} 
                   index={index} 
                   isActive={activeStep === index}
-                  onClick={setActiveStep}
+                  onClick={(index: number) => setActiveStep(index)}
                 />
               </motion.div>
             ))}
